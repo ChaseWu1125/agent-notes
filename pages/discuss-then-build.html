@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>先討論再生成：讓 AI 先訪談你｜Agent 學習卡</title>
+  <meta name="description" content="先讓 AI 問 8～10 題、整理需求摘要，確認後才建 AGENTS.md。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Agent <span>學習卡</span></a>
+      <nav><a href="../index.html">全部卡片</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <header class="page-head">
+        <div class="crumbs"><a href="../index.html">首頁</a> / 方法</div>
+        <div class="meta"><span class="tag" data-cat="方法">方法</span><span>第 10 週</span></div>
+        <h1>先討論再生成：讓 AI 先訪談你</h1>
+      </header>
+
+      <p class="tldr">先讓 AI 問 8～10 題、整理需求摘要，確認後才建 AGENTS.md。</p>
+      <section>
+        <h2>上週 vs 這週</h2>
+        <div class="compare">
+          <div class="bad"><h3>上週：一句話生成</h3><p>「請依 Karpathy 的 LLM Wiki，建立 AGENTS.md 和資料夾。」</p></div>
+          <div class="good"><h3>這週：先討論再生成</h3><p>先讓 AI 訪談你、整理需求，你確認之後才建檔。</p></div>
+        </div>
+        <p>Karpathy 的原文也是這樣建議：把他的文件交給你的代理，和它一起做出適合你的版本。</p>
+      </section>
+
+      <section>
+        <h2>怎麼做？</h2>
+        <ol class="steps">
+          <li><strong>準備</strong>建專案資料夾、<code>git init</code>，放 3～5 篇論文進 <code>raw/</code>。</li>
+          <li><strong>開場 prompt</strong>明確說「先不要建立任何檔案」，請 AI 一次只問一題，大約問 8～10 題。</li>
+          <li><strong>需求摘要</strong>問完後，AI 整理成摘要，由你確認。</li>
+          <li><strong>生成 AGENTS.md</strong>AI 依照摘要生成手冊和資料夾。</li>
+          <li><strong>逐條對照</strong>你檢查：摘要裡說的，手冊裡都有寫進去嗎？</li>
+          <li><strong>Ingest 1～2 篇再 commit</strong>先少量試跑，<code>git commit -m "first ingest"</code>。</li>
+        </ol>
+        <div class="callout warn"><strong>小提醒</strong><p><code>raw/</code> 不要放個資或機密文件。</p></div>
+      </section>
+
+      <section>
+        <h2>AI 至少該問到這些</h2>
+        <div class="table-wrap">
+          <table>
+            <tr><th>問題</th><th>為什麼要問</th></tr>
+            <tr><td>👥 讀者是誰</td><td>決定用詞深淺</td></tr>
+            <tr><td>📑 要哪些頁面類型</td><td>決定 wiki 的結構</td></tr>
+            <tr><td>🌏 用什麼語言</td><td>統一輸出語言</td></tr>
+            <tr><td>🔖 出處要多細</td><td>決定引用格式</td></tr>
+            <tr><td>⚖️ 論文互相矛盾怎麼辦</td><td>避免 AI 自己選邊</td></tr>
+            <tr><td>📥 一次一篇還是批次</td><td>決定 ingest 流程</td></tr>
+            <tr><td>🎞️ 之後要產出什麼</td><td>預留下游用途（例如簡報）</td></tr>
+            <tr><td>🩺 lint 要檢查什麼</td><td>定義可執行的檢查</td></tr>
+          </table>
+        </div>
+        <p>（「為什麼要問」這一欄是本站補充的說明。）</p>
+      </section>
+
+      <section>
+        <h2>寫手冊的三個小提醒</h2>
+        <ul>
+          <li><strong>📏 別寫太長</strong>：Antigravity 的規則檔上限是 12,000 字元，細節可以拆到 skill。</li>
+          <li><strong>🥇 只維護一份</strong>：GEMINI.md 的優先序比 AGENTS.md 高，兩份並存容易互相衝突。</li>
+          <li><strong>🔗 Claude Code</strong>：在 CLAUDE.md 寫 <code>@AGENTS.md</code> 共用同一份。</li>
+        </ul>
+      </section>
+
+      <section class="recap">
+        <h2>重點回顧</h2>
+        <ul>
+          <li>先訪談、後生成，開場就說「先不要建立任何檔案」</li>
+          <li>需求摘要由你確認，AGENTS.md 由你逐條對照</li>
+          <li>先 ingest 1～2 篇並 commit，確認沒問題再擴大</li>
+        </ul>
+      </section>
+
+      <nav class="pager" data-slug="discuss-then-build"></nav>
+    </article>
+  </main>
+
+  <footer class="site-foot">Agent 學習卡 · 用 AGENTS.md 驅動的筆記網站</footer>
+
+  <script src="../data/pages.js"></script>
+  <script src="../assets/main.js"></script>
+</body>
+</html>

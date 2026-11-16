@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>主題 → HTML 簡報的三種做法｜Agent 學習卡</title>
+  <meta name="description" content="同一個任務，用 Prompt、Loop、Graph 做會有什麼不同。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Agent <span>學習卡</span></a>
+      <nav><a href="../index.html">全部卡片</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <header class="page-head">
+        <div class="crumbs"><a href="../index.html">首頁</a> / 案例</div>
+        <div class="meta"><span class="tag" data-cat="案例">案例</span><span>第 10 週</span></div>
+        <h1>主題 → HTML 簡報的三種做法</h1>
+      </header>
+
+      <p class="tldr">同一個任務，用 Prompt、Loop、Graph 做會有什麼不同。</p>
+      <section>
+        <h2>任務</h2>
+        <p>你說一個主題（例如多模態 RAG），AI <strong>只用 wiki 的內容</strong>做出一份 HTML 簡報。同一個 wiki、同一個模型、同一件事，只換做法。</p>
+      </section>
+
+      <section>
+        <h2>做法一：Prompt（一句話）</h2>
+        <p>「根據 wiki 裡關於多模態 RAG 的內容，做一份 HTML 簡報。」AI 回你「做好了！」，然後你開始一直修：</p>
+        <ul>
+          <li>😵 第 5 頁字太多，跑出畫面</li>
+          <li>🔍 這個 37% 是哪篇論文的？</li>
+          <li>📚 8 篇相關論文只用了 3 篇</li>
+          <li>🔄 論文 A 的結論講反了</li>
+        </ul>
+        <div class="callout note"><strong>其實這裡也有 loop</strong><p>只是你自己就是那個 loop。</p></div>
+      </section>
+
+      <section>
+        <h2>做法二：Loop（把修正寫成 SKILL.md）</h2>
+        <div class="table-wrap">
+          <table>
+            <tr><th>項目</th><th>內容</th></tr>
+            <tr><td>🎯 目標</td><td>只用 wiki，產出 HTML 簡報</td></tr>
+            <tr><td>✅ 程式檢查</td><td>每頁有出處、引用頁面存在、數字找得到、8～15 頁、渲染後沒有溢出</td></tr>
+            <tr><td>🧑‍⚖️ AI 審查</td><td>開新對話，只給簡報和引用頁，檢查忠實度和覆蓋率</td></tr>
+            <tr><td>🔁 每一輪</td><td>只修檢查報告列出的問題</td></tr>
+            <tr><td>🛑 停止</td><td>全部通過、改滿 3 輪，或一開始發現相關頁面少於 3 頁就停下</td></tr>
+          </table>
+        </div>
+        <ol class="steps">
+          <li><strong>第 1 輪</strong>腳本：3 頁溢出、2 處沒出處；審查：第 6 頁講反了。</li>
+          <li><strong>第 2 輪</strong>腳本全過；審查：論文 D 沒用到。</li>
+          <li><strong>第 3 輪</strong>補進論文 D，全部通過，交件時附上檢查報告。</li>
+        </ol>
+        <p>你只要最後看報告就好。</p>
+      </section>
+
+      <section>
+        <h2>做法三：Graph（先畫好流程）</h2>
+        <p class="formula">檢索 → 證據卡 → 大綱 → 逐頁稿 → 渲染 → 交件</p>
+        <p>中間設了覆蓋率關卡（資料不足就停）、人工確認大綱、忠實度檢查、渲染檢查。每一關能看什麼、不能做什麼都事先規定好：</p>
+        <div class="table-wrap">
+          <table>
+            <tr><th>節點</th><th>只能看</th><th>不能做</th></tr>
+            <tr><td>證據卡</td><td>一篇論文</td><td>混入其他來源</td></tr>
+            <tr><td>逐頁稿</td><td>大綱＋對應卡片</td><td>引用卡片以外的內容</td></tr>
+            <tr><td>渲染 HTML</td><td>已通過的逐頁稿</td><td>改任何一個字</td></tr>
+            <tr><td>檢查關卡</td><td>成品＋來源</td><td>自己動手改</td></tr>
+          </table>
+        </div>
+        <h3>錯在哪一關，就退回哪一關</h3>
+        <ul>
+          <li>📄 第 6 頁講錯：只修那一頁，其他 14 頁不動</li>
+          <li>🃏 卡片本身錯：退回重抽那一篇的證據卡</li>
+          <li>✂️ 字太多：不是硬塞，退回逐頁稿縮短</li>
+          <li>🧩 缺子題：人看大綱時發現，退回檢索補資料</li>
+        </ul>
+        <div class="callout tip"><strong>狀態都是檔案</strong><p><code>sources.md</code>、<code>cards/</code>、<code>outline.md</code>、<code>drafts/</code>、<code>deck.html</code>、<code>report.md</code>。每一關的產出都能打開來看、放進 git、單獨重跑。流程可以寫成 workflow 檔放進 <code>.agents/workflows/</code>，再用 <code>/topic-slides</code> 呼叫；每一道檢查關卡就是一支腳本。</p></div>
+      </section>
+
+      <section class="recap">
+        <h2>重點回顧</h2>
+        <ul>
+          <li>Prompt 版：你自己變成那個 loop</li>
+          <li>Loop 版：把你的修正寫成規格，最後只看報告</li>
+          <li>Graph 版：每關限定能看與能改的範圍，錯在哪關退回哪關</li>
+          <li>中間產物都存成檔案，方便檢查和重跑</li>
+        </ul>
+      </section>
+
+      <nav class="pager" data-slug="topic-to-slides"></nav>
+    </article>
+  </main>
+
+  <footer class="site-foot">Agent 學習卡 · 用 AGENTS.md 驅動的筆記網站</footer>
+
+  <script src="../data/pages.js"></script>
+  <script src="../assets/main.js"></script>
+</body>
+</html>

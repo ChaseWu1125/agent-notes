@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>從 Prompt 到 Loop：寫一份會自己跑的規格｜Agent 學習卡</title>
+  <meta name="description" content="Loop 寫清目標、限制、完成標準、停止條件、觸發，寫一次跑很多輪。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Agent <span>學習卡</span></a>
+      <nav><a href="../index.html">全部卡片</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <header class="page-head">
+        <div class="crumbs"><a href="../index.html">首頁</a> / 概念</div>
+        <div class="meta"><span class="tag" data-cat="概念">概念</span><span>第 10 週</span></div>
+        <h1>從 Prompt 到 Loop：寫一份會自己跑的規格</h1>
+      </header>
+
+      <p class="tldr">Loop 寫清目標、限制、完成標準、停止條件、觸發，寫一次跑很多輪。</p>
+      <section>
+        <h2>老闆還是一直在盯</h2>
+        <ol class="steps">
+          <li><strong>你交辦工作</strong>「幫我做一份簡報。」</li>
+          <li><strong>AI 做出一版</strong>看起來完成了。</li>
+          <li><strong>你檢查</strong>發現第 5 頁字太多。</li>
+          <li><strong>再一次</strong>這就是 loop，只是現在由你來推動它。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>不要寫 prompt，寫 loop</h2>
+        <p>Claude Code 負責人 Boris Cherny 說，他的工作是寫 loop。Addy Osmani 在 2026 年 6 月把這種做法命名為 loop engineering，意思是把「下 prompt 的人」換成一套流程。</p>
+        <p>最早的 loop 只有一行，是 Geoffrey Huntley 在 2025 年 7 月提出的 Ralph loop：</p>
+        <pre><code>while :; do cat PROMPT.md | claude ; done</code></pre>
+        <p>同一份 <code>PROMPT.md</code> 每一輪都重餵一次。讓它運作的不是 prompt 本身，而是<strong>重複、檢查、用檔案記進度</strong>。看起來很笨，但真的會動。</p>
+        <div class="table-wrap">
+          <table>
+            <tr><th></th><th>寫 prompt</th><th>寫 loop</th></tr>
+            <tr><td>寫的內容</td><td>這一輪要做什麼</td><td>目標、完成標準、驗證、停止規則</td></tr>
+            <tr><td>下一步誰決定</td><td>你讀完再寫下一句</td><td>系統依檢查結果決定</td></tr>
+            <tr><td>寫幾次</td><td>每一輪都寫</td><td>寫一次，跑很多輪</td></tr>
+            <tr><td>你的角色</td><td>黏著劑</td><td>設計者、審查者</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>一個 loop 要寫清楚五件事</h2>
+        <ol class="steps">
+          <li><strong>🎯 目標</strong>要什麼成品</li>
+          <li><strong>🚧 限制</strong>哪些不能動</li>
+          <li><strong>✅ 完成標準</strong>怎麼算做完</li>
+          <li><strong>🛑 停止條件</strong>做不到時，何時停手</li>
+          <li><strong>⏰ 觸發</strong>什麼時候開始跑</li>
+        </ol>
+        <p>前三件就是上週<a href="good-delegation.html">當好老闆</a>學過的交辦三件事。</p>
+        <div class="compare">
+          <div class="good"><h3>🧮 程式檢查</h3><p>測試有沒有過？連結斷了沒？每頁有沒有出處？</p></div>
+          <div class="good"><h3>🧑‍⚖️ AI 審查</h3><p>內容有沒有忠於來源？說法有沒有講反？</p></div>
+        </div>
+        <div class="callout warn"><strong>不要叫 AI 審自己的作品</strong><p>AI 審查要開一個新的對話，只給它成品和來源。</p></div>
+      </section>
+
+      <section>
+        <h2>Loop 也要剎車</h2>
+        <ul>
+          <li><strong>硬上限</strong>：最多改 3 輪</li>
+          <li><strong>資料不足就停</strong>：不要用自己的知識硬湊</li>
+          <li><strong>會花錢</strong>：一個 loop 用掉的 token 遠多於聊天</li>
+        </ul>
+        <div class="callout note"><strong>記住</strong><p>沒人看管的 loop，就是會在沒人看管的情況下犯錯的 loop。</p></div>
+      </section>
+
+      <section class="recap">
+        <h2>重點回顧</h2>
+        <ul>
+          <li>寫 prompt 是每輪下指令，寫 loop 是寫一份會自己執行的規格</li>
+          <li>Loop 五件事：目標、限制、完成標準、停止條件、觸發</li>
+          <li>完成標準分成程式檢查和 AI 審查，審查要開新對話</li>
+          <li>一定要設剎車：輪數上限、資料不足就停</li>
+        </ul>
+      </section>
+
+      <nav class="pager" data-slug="prompt-to-loop"></nav>
+    </article>
+  </main>
+
+  <footer class="site-foot">Agent 學習卡 · 用 AGENTS.md 驅動的筆記網站</footer>
+
+  <script src="../data/pages.js"></script>
+  <script src="../assets/main.js"></script>
+</body>
+</html>

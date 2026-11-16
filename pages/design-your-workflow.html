@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>拆解你自己的工作｜Agent 學習卡</title>
+  <meta name="description" content="說「檢查一下」不算驗證，先寫好完成的定義再決定結構。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Agent <span>學習卡</span></a>
+      <nav><a href="../index.html">全部卡片</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <header class="page-head">
+        <div class="crumbs"><a href="../index.html">首頁</a> / 方法</div>
+        <div class="meta"><span class="tag" data-cat="方法">方法</span><span>第 10 週</span></div>
+        <h1>拆解你自己的工作</h1>
+      </header>
+
+      <p class="tldr">說「檢查一下」不算驗證，先寫好完成的定義再決定結構。</p>
+      <section>
+        <h2>從老闆到流程設計師</h2>
+        <p>上週學會當老闆、說清楚交辦的內容，這週要再進一步：把自己的工作拆成 AI 可以照著跑的流程。</p>
+        <div class="callout warn"><strong>先用紙畫</strong><p>不要急著叫 AI 做！先把流程想清楚。</p></div>
+      </section>
+
+      <section>
+        <h2>畫出你的 workflow：六個問題</h2>
+        <ol class="steps">
+          <li><strong>可以拆成哪幾個節點？</strong>例如：檢索 → 大綱 → 逐頁稿 → 渲染。</li>
+          <li><strong>每個節點的輸入、輸出是什麼檔案？</strong>狀態都存成檔案，才能檢查和重跑。</li>
+          <li><strong>每個節點怎麼檢查？</strong>用程式、人，還是 AI 審查？</li>
+          <li><strong>人要在哪一關介入？</strong>例如確認大綱。</li>
+          <li><strong>出錯時退回哪裡？</strong>事先設計好退回路線。</li>
+          <li><strong>prompt、loop 還是 graph 就夠了？</strong>讓問題告訴你需要多少結構。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>範例：拆解本網站「新增學習卡」的流程</h2>
+        <p>以下是本站自己的流程，用來示範怎麼套用這六個問題：</p>
+        <div class="table-wrap">
+          <table>
+            <tr><th>節點</th><th>輸入 → 輸出</th><th>檢查方式</th></tr>
+            <tr><td>轉檔</td><td>講義 PDF → <code>raw/週次-主題.md</code></td><td>人看：章節齊全</td></tr>
+            <tr><td>規劃</td><td>raw → 頁面計畫表</td><td>👤 人工確認</td></tr>
+            <tr><td>撰寫</td><td>計畫＋模板 → <code>pages/&lt;slug&gt;.html</code></td><td>🧮 腳本：標題、slug 一致，沒有殘留佔位文字</td></tr>
+            <tr><td>登記</td><td>新頁面 → <code>data/pages.js</code></td><td>🧮 腳本：每筆都有對應的檔案</td></tr>
+            <tr><td>發布</td><td>變更清單 → git push</td><td>👤 人工確認後才 push</td></tr>
+          </table>
+        </div>
+        <p>計畫被退回就回到「規劃」，腳本沒過就回到「撰寫」。這是一個很小的 graph，規則寫在 <a href="https://github.com/ChaseWu1125/agent-notes/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a> 裡。</p>
+      </section>
+
+      <section>
+        <h2>今天的一句話</h2>
+        <p class="formula">說「檢查一下」不算驗證；說「做好一點」不算規格。</p>
+        <p>先寫好「完成的定義」，再決定要不要加上 loop 或 graph。</p>
+      </section>
+
+      <section class="recap">
+        <h2>重點回顧</h2>
+        <ul>
+          <li>先用紙畫流程，再交給 AI</li>
+          <li>六個問題：節點、輸入輸出、檢查、人工介入、退回路線、需要多少結構</li>
+          <li>先定義「完成」，結構才有意義</li>
+        </ul>
+      </section>
+
+      <nav class="pager" data-slug="design-your-workflow"></nav>
+    </article>
+  </main>
+
+  <footer class="site-foot">Agent 學習卡 · 用 AGENTS.md 驅動的筆記網站</footer>
+
+  <script src="../data/pages.js"></script>
+  <script src="../assets/main.js"></script>
+</body>
+</html>
