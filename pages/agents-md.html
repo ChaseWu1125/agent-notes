@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AGENTS.md：寫給 AI 的員工手冊｜Agent 學習卡</title>
+  <meta name="description" content="把專案規則寫成檔案，每次開工先讀，換對話、換電腦都不怕。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Agent <span>學習卡</span></a>
+      <nav><a href="../index.html">全部卡片</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <header class="page-head">
+        <div class="crumbs"><a href="../index.html">首頁</a> / 工具</div>
+        <div class="meta"><span class="tag" data-cat="工具">工具</span><span>第 9 週</span></div>
+        <h1>AGENTS.md：寫給 AI 的員工手冊</h1>
+      </header>
+
+      <p class="tldr">把專案規則寫成檔案，每次開工先讀，換對話、換電腦都不怕。</p>
+      <section>
+        <h2>是什麼？</h2>
+        <p>做專案型 AI Agent 時，通常會設一個<strong>專案資料夾</strong>讓 AI 有存取權限，再放一本「員工手冊」：</p>
+        <ul>
+          <li><code>CLAUDE.md</code>：Claude 專用</li>
+          <li><code>AGENTS.md</code>：一般通用（Codex 等工具都讀）</li>
+        </ul>
+        <p>不一定非要這樣命名，也可以跟 AI 說「先讀指定的員工手冊」。</p>
+      </section>
+
+      <section>
+        <h2>為什麼不一直在同一個對話裡做？</h2>
+        <ul>
+          <li>對話會越來越長，AI 越來越容易忘記前面的規則</li>
+          <li>換一台電腦、開新對話就讀不到了</li>
+        </ul>
+        <div class="callout tip"><strong>開工咒語</strong><p>「請先讀 AGENTS.md，瞭解這個專案的內容。」</p></div>
+      </section>
+
+      <section>
+        <h2>本網站就是範例</h2>
+        <p>這個「Agent 學習卡」網站就是用 AGENTS.md 驅動的，手冊裡寫了：</p>
+        <ol class="steps">
+          <li><strong>目的與讀者</strong>每頁 3 分鐘讀完，給修課同學複習</li>
+          <li><strong>技術限制</strong>純 HTML/CSS/JS、相對路徑、可雙擊開啟</li>
+          <li><strong>檔案結構與命名</strong><code>pages/&lt;slug&gt;.html</code>、<code>raw/週次-主題.md</code></li>
+          <li><strong>頁面格式</strong>一句話重點 → 2～4 段 → 重點回顧 → 上一張／下一張</li>
+          <li><strong>作業流程與檢查清單</strong>先提計畫、複製模板、登記 pages.js、逐項檢查</li>
+        </ol>
+        <p>參考課堂範例「呆一布講義」：<a href="https://diveai-lab.github.io/diveai-lessons/" target="_blank" rel="noopener">diveai-lab.github.io/diveai-lessons</a>，它的資料夾也只有 CLAUDE.md、ideas、assets、slide_notes、presentation、index.html。</p>
+      </section>
+
+      <section>
+        <h2>寫手冊的心法</h2>
+        <div class="callout note"><strong>不用一次寫完美</strong><p>規格書本來就是和 AI 一起討論出來的。每次發現 AI 做錯，就把規則補進去，手冊會越寫越好用。</p></div>
+      </section>
+
+      <section class="recap">
+        <h2>重點回顧</h2>
+        <ul>
+          <li>CLAUDE.md 給 Claude，AGENTS.md 通用</li>
+          <li>規則寫在檔案裡，不怕對話太長或換電腦</li>
+          <li>好的手冊包含：目的、結構、命名、格式、流程、禁止事項</li>
+          <li>持續改寫，越用越好</li>
+        </ul>
+      </section>
+
+      <nav class="pager" data-slug="agents-md"></nav>
+    </article>
+  </main>
+
+  <footer class="site-foot">Agent 學習卡 · 用 AGENTS.md 驅動的筆記網站</footer>
+
+  <script src="../data/pages.js"></script>
+  <script src="../assets/main.js"></script>
+</body>
+</html>

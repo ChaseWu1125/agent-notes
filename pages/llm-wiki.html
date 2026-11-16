@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLM Wiki：讓 AI 幫你養一座知識庫｜Agent 學習卡</title>
+  <meta name="description" content="raw 放原始資料，AI 依規則整理成 wiki，打造自己的維基百科。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Agent <span>學習卡</span></a>
+      <nav><a href="../index.html">全部卡片</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <header class="page-head">
+        <div class="crumbs"><a href="../index.html">首頁</a> / 案例</div>
+        <div class="meta"><span class="tag" data-cat="案例">案例</span><span>第 9 週</span></div>
+        <h1>LLM Wiki：讓 AI 幫你養一座知識庫</h1>
+      </header>
+
+      <p class="tldr">raw 放原始資料，AI 依規則整理成 wiki，打造自己的維基百科。</p>
+      <section>
+        <h2>是什麼？</h2>
+        <p>Karpathy 提出的做法，簡單說就是<strong>打造你自己的 Wikipedia</strong>。</p>
+        <ol class="steps">
+          <li><strong>raw/</strong>放你找到的資料（文章、筆記、截圖…）</li>
+          <li><strong>規則檔</strong>教 AI 怎麼把 raw 的檔案產生／修改成 wiki 檔</li>
+          <li><strong>wiki/ ＋ index.md</strong>AI 整理好的條目，加上一份目錄</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>和本網站的對應</h2>
+        <div class="table-wrap">
+          <table>
+            <tr><th>LLM Wiki</th><th>Agent 學習卡</th></tr>
+            <tr><td><code>raw/</code></td><td><code>raw/09-agentic-work.md</code></td></tr>
+            <tr><td>wiki 條目</td><td><code>pages/&lt;slug&gt;.html</code></td></tr>
+            <tr><td><code>index.md</code></td><td><code>data/pages.js</code> ＋ 首頁</td></tr>
+            <tr><td>規則</td><td><code>AGENTS.md</code></td></tr>
+          </table>
+        </div>
+        <div class="callout tip"><strong>其實是同一套思路</strong><p>原始資料和整理後的成品分開放，AI 只讀 raw、只寫成品，規則寫在手冊裡。</p></div>
+      </section>
+
+      <section>
+        <h2>延伸閱讀</h2>
+        <ul>
+          <li>Karpathy Gist：<a href="https://bit.ly/llmwiki" target="_blank" rel="noopener">bit.ly/llmwiki</a></li>
+          <li>Farzapedia（個人化的 Wikipedia）：<a href="https://bit.ly/farzawiki" target="_blank" rel="noopener">bit.ly/farzawiki</a></li>
+        </ul>
+      </section>
+
+      <section class="recap">
+        <h2>重點回顧</h2>
+        <ul>
+          <li>LLM Wiki = raw 資料 + 規則 + AI 整理出的 wiki</li>
+          <li>原始資料與成品分開，AI 不改 raw</li>
+          <li>本網站就是一個小型 LLM Wiki</li>
+        </ul>
+      </section>
+
+      <nav class="pager" data-slug="llm-wiki"></nav>
+    </article>
+  </main>
+
+  <footer class="site-foot">Agent 學習卡 · 用 AGENTS.md 驅動的筆記網站</footer>
+
+  <script src="../data/pages.js"></script>
+  <script src="../assets/main.js"></script>
+</body>
+</html>
